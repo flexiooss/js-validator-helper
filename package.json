@@ -1,0 +1,29 @@
+{
+  "name": "@flexio-oss/js-validator-helper",
+  "version": "1.0.0-dev",
+  "description": "Simple service router handler",
+  "main": "index.js",
+  "repository": "https://github.com/flexiooss/js-validator-helper",
+  "author": "Thomas Chatelain (https://github.com/TomAchT)",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@flexio-corp/js-common-parent": "0.0.0-dev"
+  },
+  "devDependencies": {
+    "code-altimeter-js": "https://github.com/flexiooss/code-altimeter-js.git"
+  },
+  "hotballoon-shed": {
+    "build": {
+      "builder": "webpack4"
+    },
+    "test": {
+      "tester": "code-altimeter-js",
+      "path": "src/test"
+    },
+    "generate-sources": {
+      "value-objects": {
+        "extension": ".spec"
+      }
+    }
+  }
+}
