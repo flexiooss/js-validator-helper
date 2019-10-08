@@ -1,5 +1,6 @@
 import {Validator} from './Validator'
 import {isNull, isString} from '@flexio-oss/assert'
+import {TypeCheck} from '@flexio-oss/extended-flex-types'
 
 export class StringValidator extends Validator {
   /**
@@ -28,7 +29,7 @@ export class StringValidator extends Validator {
    * @return {boolean}
    */
   validateInRange(value, rangeStart, rangeEnd) {
-    return isString(value) && value >= rangeStart && value <= rangeEnd
+    return isString(rangeStart) && isString(rangeEnd) && isString(value) && value >= rangeStart && value <= rangeEnd
   }
 
   /**
@@ -38,7 +39,7 @@ export class StringValidator extends Validator {
    * @return {boolean}
    */
   validateInEnumerated(value, enumeratedValues) {
-    return isString(value) && enumeratedValues.indexOf(value, 0) > -1
+    return TypeCheck.isStringArray(enumeratedValues) && isString(value) && enumeratedValues.indexOf(value, 0) > -1
   }
 
   /**

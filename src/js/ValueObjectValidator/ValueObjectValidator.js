@@ -8,6 +8,7 @@ export class ValueObjectValidator {
    * @return {boolean}
    */
   isValid(object) {
+    throw new Error('Should be override')
   }
 
 }

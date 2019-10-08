@@ -1,10 +1,11 @@
 import {Validator} from './Validator'
 import {isNull, isNumber} from '@flexio-oss/assert'
+import {TypeCheck} from '@flexio-oss/extended-flex-types'
 
 export class NumberValidator extends Validator {
   /**
    *
-   * @param {string} value
+   * @param {Number} value
    * @return {boolean}
    */
   validateNotNull(value) {
@@ -13,7 +14,7 @@ export class NumberValidator extends Validator {
 
   /**
    *
-   * @param {string} value
+   * @param {Number} value
    * @return {boolean}
    */
   validateNotEmpty(value) {
@@ -22,23 +23,23 @@ export class NumberValidator extends Validator {
 
   /**
    *
-   * @param {string} value
-   * @param {string} rangeStart
-   * @param {string} rangeEnd
+   * @param {Number} value
+   * @param {Number} rangeStart
+   * @param {Number} rangeEnd
    * @return {boolean}
    */
   validateInRange(value, rangeStart, rangeEnd) {
-    return isNumber(value) && value >= rangeStart && value <= rangeEnd
+    return isNumber(rangeStart) && isNumber(rangeEnd) && isNumber(value) && value >= rangeStart && value <= rangeEnd
   }
 
   /**
    *
-   * @param {string} value
-   * @param {StringArray} enumeratedValues
+   * @param {Number} value
+   * @param {NumberArray} enumeratedValues
    * @return {boolean}
    */
   validateInEnumerated(value, enumeratedValues) {
-    return isNumber(value) && enumeratedValues.indexOf(value, 0) > -1
+    return TypeCheck.isNumberArray(enumeratedValues) && isNumber(value) && enumeratedValues.includes(value)
   }
 
   /**
@@ -48,6 +49,6 @@ export class NumberValidator extends Validator {
    * @return {boolean}
    */
   validateRegex(value, regex) {
-    return isNumber(value) && new RegExp(regex).test(value)
+    throw new Error('NumberValidator: no regex for `validateRegex`')
   }
 }
