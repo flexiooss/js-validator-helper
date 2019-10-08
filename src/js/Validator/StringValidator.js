@@ -1,5 +1,5 @@
 import {Validator} from './Validator'
-import {isNull, isString} from '@flexio-oss/assert'
+import {isNull, isString, isRegex} from '@flexio-oss/assert'
 import {TypeCheck} from '@flexio-oss/extended-flex-types'
 
 export class StringValidator extends Validator {
@@ -45,10 +45,10 @@ export class StringValidator extends Validator {
   /**
    *
    * @param {string} value
-   * @param {string} regex
+   * @param {RegExp} regex
    * @return {boolean}
    */
   validateRegex(value, regex) {
-    return isString(value) && new RegExp(regex).test(value)
+    return isRegex(regex) && isString(value) && regex.test(value)
   }
 }

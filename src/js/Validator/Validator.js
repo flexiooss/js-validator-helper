@@ -45,7 +45,7 @@ export class Validator {
   /**
    *
    * @param {*} value
-   * @param {string} regex
+   * @param {RegExp} regex
    * @return {boolean}
    */
   validateRegex(value, regex) {

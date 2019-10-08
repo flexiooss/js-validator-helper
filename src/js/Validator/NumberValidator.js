@@ -45,7 +45,7 @@ export class NumberValidator extends Validator {
   /**
    *
    * @param {string} value
-   * @param {string} regex
+   * @param {RegExp} regex
    * @return {boolean}
    */
   validateRegex(value, regex) {

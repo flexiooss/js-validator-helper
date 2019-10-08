@@ -93,31 +93,38 @@ export class StringValidatorTest extends TestCase {
 
   testValidateRegex() {
     assert(
-      this.validator.validateRegex('toto', 'o')
+      this.validator.validateRegex('toto', new RegExp(/o/))
     )
 
     assert(
-      this.validator.validateRegex('https://ui.toto.fr/', '/$')
+      this.validator.validateRegex('toto', 'o') === false
     )
 
     assert(
-      this.validator.validateRegex('', '')
-    )
-    assert(
-      this.validator.validateRegex(' ', '')
-    )
-    assert(
-      this.validator.validateRegex('', ' ') === false
+      this.validator.validateRegex('https://ui.toto.fr/', new RegExp(/\/$/))
     )
 
     assert(
-      this.validator.validateRegex('https://ui.toto.fr/', '^$') === false
+      this.validator.validateRegex('', new RegExp())
+    )
+    assert(
+      this.validator.validateRegex(' ', new RegExp())
+    )
+    assert(
+      this.validator.validateRegex('', new RegExp(/ /)) === false
     )
 
     assert(
-      this.validator.validateRegex('toto', 'a') === false
+      this.validator.validateRegex('https://ui.toto.fr/', new RegExp(/^$/)) === false
     )
 
+    assert(
+      this.validator.validateRegex('toto', new RegExp(/a/)) === false
+    )
+
+    assert(
+      this.validator.validateRegex(null, new RegExp()) === false
+    )
     assert(
       this.validator.validateRegex(null, '') === false
     )
