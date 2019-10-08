@@ -4,7 +4,7 @@
 export class ValueObjectValidator {
   /**
    *
-   * @param {Object} object
+   * @param  object
    * @return {boolean}
    */
   isValid(object) {
