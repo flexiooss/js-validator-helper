@@ -11,7 +11,7 @@ export class BooleanValidator extends Validator {
    * @return {boolean}
    */
   validateType(value) {
-    return this.validateType(value)
+    return isBoolean(value)
   }
 
   /**
