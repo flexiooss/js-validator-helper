@@ -1,7 +1,19 @@
 import {Validator} from './Validator'
 import {isNull, isBoolean} from '@flexio-oss/assert'
 
+/**
+ * @implements {Validator}
+ */
 export class BooleanValidator extends Validator {
+  /**
+   *
+   * @param {string} value
+   * @return {boolean}
+   */
+  validateType(value) {
+    return this.validateType(value)
+  }
+
   /**
    *
    * @param {boolean} value

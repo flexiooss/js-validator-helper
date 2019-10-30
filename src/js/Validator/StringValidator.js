@@ -2,14 +2,26 @@ import {Validator} from './Validator'
 import {isNull, isString, isRegex} from '@flexio-oss/assert'
 import {TypeCheck} from '@flexio-oss/extended-flex-types'
 
+/**
+ * @implements {Validator}
+ */
 export class StringValidator extends Validator {
   /**
    *
    * @param {string} value
    * @return {boolean}
    */
+  validateType(value) {
+    return isString(value)
+  }
+
+  /**
+   *
+   * @param {string} value
+   * @return {boolean}
+   */
   validateNotNull(value) {
-    return isString(value) && !isNull(value)
+    return this.validateType(value) && !isNull(value)
   }
 
   /**
@@ -29,7 +41,7 @@ export class StringValidator extends Validator {
    * @return {boolean}
    */
   validateInRange(value, rangeStart, rangeEnd) {
-    return isString(rangeStart) && isString(rangeEnd) && isString(value) && value >= rangeStart && value <= rangeEnd
+    return this.validateType(rangeStart) && this.validateType(rangeEnd) && this.validateType(value) && value >= rangeStart && value <= rangeEnd
   }
 
   /**
@@ -39,7 +51,7 @@ export class StringValidator extends Validator {
    * @return {boolean}
    */
   validateInEnumerated(value, enumeratedValues) {
-    return TypeCheck.isStringArray(enumeratedValues) && isString(value) && enumeratedValues.indexOf(value, 0) > -1
+    return TypeCheck.isStringArray(enumeratedValues) && this.validateType(value) && enumeratedValues.indexOf(value, 0) > -1
   }
 
   /**
@@ -49,6 +61,6 @@ export class StringValidator extends Validator {
    * @return {boolean}
    */
   validateRegex(value, regex) {
-    return isRegex(regex) && isString(value) && regex.test(value)
+    return isRegex(regex) && this.validateType(value) && regex.test(value)
   }
 }

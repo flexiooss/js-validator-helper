@@ -2,14 +2,26 @@ import {Validator} from './Validator'
 import {isNull, isNumber} from '@flexio-oss/assert'
 import {TypeCheck} from '@flexio-oss/extended-flex-types'
 
+/**
+ * @implements {Validator}
+ */
 export class NumberValidator extends Validator {
   /**
    *
    * @param {Number} value
    * @return {boolean}
    */
+  validateType(value){
+    return isNumber(value)
+  }
+
+  /**
+   *
+   * @param {Number} value
+   * @return {boolean}
+   */
   validateNotNull(value) {
-    return isNumber(value) && !isNull(value)
+    return this.validateType(value) && !isNull(value)
   }
 
   /**
@@ -29,7 +41,7 @@ export class NumberValidator extends Validator {
    * @return {boolean}
    */
   validateInRange(value, rangeStart, rangeEnd) {
-    return isNumber(rangeStart) && isNumber(rangeEnd) && isNumber(value) && value >= rangeStart && value <= rangeEnd
+    return this.validateType(rangeStart) && this.validateType(rangeEnd) && this.validateType(value) && value >= rangeStart && value <= rangeEnd
   }
 
   /**

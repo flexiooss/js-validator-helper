@@ -8,6 +8,15 @@ export class Validator {
    * @param {*} value
    * @return {boolean}
    */
+  validateType(value) {
+    throw new Error('Should be override')
+  }
+
+  /**
+   *
+   * @param {*} value
+   * @return {boolean}
+   */
   validateNotNull(value) {
     throw new Error('Should be override')
   }
