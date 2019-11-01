@@ -35,22 +35,22 @@ export class BooleanValidator extends Validator {
   /**
    *
    * @param {boolean} value
-   * @param {Number} rangeStart
-   * @param {Number} rangeEnd
+   * @param {string} rangeStart
+   * @param {string} rangeEnd
    * @return {boolean}
    */
   validateInRange(value, rangeStart, rangeEnd) {
-    throw new Error('BooleanValidator: no regex for `validateRegex`')
+    throw new Error('BooleanValidator: no range for `validateInRange`')
   }
 
   /**
    *
    * @param {boolean} value
-   * @param {NumberArray} enumeratedValues
+   * @param {StringArray} enumeratedValues
    * @return {boolean}
    */
   validateInEnumerated(value, enumeratedValues) {
-    throw new Error('BooleanValidator: no regex for `validateRegex`')
+    throw new Error('BooleanValidator: no enumeratedValues for `validateRegex`')
   }
 
   /**

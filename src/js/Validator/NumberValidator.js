@@ -1,6 +1,7 @@
 import {Validator} from './Validator'
 import {isNull, isNumber} from '@flexio-oss/assert'
 import {TypeCheck} from '@flexio-oss/extended-flex-types'
+import {globalFlexioImport} from '@flexio-oss/global-import-registry'
 
 /**
  * @implements {Validator}
@@ -11,7 +12,7 @@ export class NumberValidator extends Validator {
    * @param {Number} value
    * @return {boolean}
    */
-  validateType(value){
+  validateType(value) {
     return isNumber(value)
   }
 
@@ -36,22 +37,22 @@ export class NumberValidator extends Validator {
   /**
    *
    * @param {Number} value
-   * @param {Number} rangeStart
-   * @param {Number} rangeEnd
+   * @param {string} rangeStart
+   * @param {string} rangeEnd
    * @return {boolean}
    */
   validateInRange(value, rangeStart, rangeEnd) {
-    return this.validateType(rangeStart) && this.validateType(rangeEnd) && this.validateType(value) && value >= rangeStart && value <= rangeEnd
+    return this.validateType(value) && value >= parseFloat(rangeStart) && value <= parseFloat(rangeEnd)
   }
 
   /**
    *
    * @param {Number} value
-   * @param {NumberArray} enumeratedValues
+   * @param {StringArray} enumeratedValues
    * @return {boolean}
    */
   validateInEnumerated(value, enumeratedValues) {
-    return TypeCheck.isNumberArray(enumeratedValues) && isNumber(value) && enumeratedValues.includes(value)
+    return TypeCheck.isStringArray(enumeratedValues) && this.validateType(value) && enumeratedValues.mapTo(new globalFlexioImport.io.flexio.flex_types.arrays.FloatArray(), v => parseFloat(v)).includes(value)
   }
 
   /**
