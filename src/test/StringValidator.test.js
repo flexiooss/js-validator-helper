@@ -2,6 +2,7 @@
 import {TestCase} from 'code-altimeter-js'
 import {StringValidator} from '../js/Validator/StringValidator'
 import '@flexio-oss/extended-flex-types'
+import '@flexio-oss/flex-types'
 import {globalFlexioImport} from '@flexio-oss/global-import-registry'
 
 const assert = require('assert')
@@ -45,47 +46,40 @@ export class StringValidatorTest extends TestCase {
 
     assert.ok(this.validator.validateInEnumerated(
       'toto',
-      new globalFlexioImport.io.flexio.extended_flex_types
-        .StringArrayBuilder()
-        .values(['toto', 'tutu'])
-        .build()
+      new globalFlexioImport.io.flexio.flex_types.arrays
+        .StringArray(...['toto', 'tutu'])
       )
     )
 
     assert.ok(
       this.validator.validateInEnumerated(
         'titi',
-        new globalFlexioImport.io.flexio.extended_flex_types
-          .StringArrayBuilder()
-          .values(['toto', 'tutu'])
-          .build()
+        new globalFlexioImport.io.flexio.flex_types.arrays
+          .StringArray(...['toto', 'tutu'])
       ) === false
     )
 
     assert.ok(
       this.validator.validateInEnumerated(
         'titi',
-        new globalFlexioImport.io.flexio.extended_flex_types
-          .StringArrayBuilder()
-          .build()
+        new globalFlexioImport.io.flexio.flex_types.arrays
+          .StringArray()
       ) === false
     )
 
     assert.ok(
       this.validator.validateInEnumerated(
         '',
-        new globalFlexioImport.io.flexio.extended_flex_types
-          .StringArrayBuilder()
-          .build()
+        new globalFlexioImport.io.flexio.flex_types.arrays
+          .StringArray()
       ) === false
     )
 
     assert.ok(
       this.validator.validateInEnumerated(
         null,
-        new globalFlexioImport.io.flexio.extended_flex_types
-          .StringArrayBuilder()
-          .build()
+        new globalFlexioImport.io.flexio.flex_types.arrays
+          .StringArray()
       ) === false
     )
 

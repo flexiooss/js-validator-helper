@@ -1,6 +1,6 @@
 import {Validator} from './Validator'
 import {isNull, isString, isRegex} from '@flexio-oss/assert'
-import {TypeCheck} from '@flexio-oss/extended-flex-types'
+import {globalFlexioImport} from '@flexio-oss/global-import-registry'
 
 /**
  * @implements {Validator}
@@ -51,7 +51,8 @@ export class StringValidator extends Validator {
    * @return {boolean}
    */
   validateInEnumerated(value, enumeratedValues) {
-    return TypeCheck.isStringArray(enumeratedValues) && this.validateType(value) && enumeratedValues.indexOf(value, 0) > -1
+    return enumeratedValues instanceof globalFlexioImport.io.flexio.flex_types.arrays
+      .StringArray && this.validateType(value) && enumeratedValues.indexOf(value, 0) > -1
   }
 
   /**

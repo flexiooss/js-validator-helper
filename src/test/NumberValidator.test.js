@@ -1,6 +1,7 @@
 /* global runTest */
 import {TestCase} from 'code-altimeter-js'
 import {NumberValidator} from '../js/Validator/NumberValidator'
+import '@flexio-oss/flex-types'
 import '@flexio-oss/extended-flex-types'
 import {globalFlexioImport} from '@flexio-oss/global-import-registry'
 
@@ -32,6 +33,7 @@ export class NumberValidatorTest extends TestCase {
   testValidateInRange() {
 
     assert.ok(this.validator.validateInRange(2, 1, 3))
+    assert.ok(this.validator.validateInRange(2, '1', '3'))
     assert.ok(this.validator.validateInRange(0, -1, 1))
     assert.ok(this.validator.validateInRange(0, 0, 1))
     assert.ok(this.validator.validateInRange(0, 1, 2) === false)
@@ -47,29 +49,23 @@ export class NumberValidatorTest extends TestCase {
 
     assert.ok(this.validator.validateInEnumerated(
       4,
-      new globalFlexioImport.io.flexio.extended_flex_types
-        .NumberArrayBuilder()
-        .values([1, 4])
-        .build()
+      new globalFlexioImport.io.flexio.flex_types.arrays
+        .StringArray(...['1', '4'])
       ), '1'
     )
 
     assert.ok(this.validator.validateInEnumerated(
       2,
-      new globalFlexioImport.io.flexio.extended_flex_types
-        .NumberArrayBuilder()
-        .values([2])
-        .build()
+      new globalFlexioImport.io.flexio.flex_types.arrays
+        .StringArray(...['2'])
       ),
       '2.a'
     )
 
     assert.ok(this.validator.validateInEnumerated(
       0,
-      new globalFlexioImport.io.flexio.extended_flex_types
-        .NumberArrayBuilder()
-        .values([0])
-        .build()
+      new globalFlexioImport.io.flexio.flex_types.arrays
+        .StringArray(...['0'])
       ),
       '2.b'
     )
@@ -77,10 +73,8 @@ export class NumberValidatorTest extends TestCase {
     assert.ok(
       this.validator.validateInEnumerated(
         0,
-        new globalFlexioImport.io.flexio.extended_flex_types
-          .NumberArrayBuilder()
-          .values([1, 2])
-          .build()
+        new globalFlexioImport.io.flexio.flex_types.arrays
+          .StringArray(...['1', '2'])
       ) === false,
       '3'
     )
@@ -88,9 +82,8 @@ export class NumberValidatorTest extends TestCase {
     assert.ok(
       this.validator.validateInEnumerated(
         2,
-        new globalFlexioImport.io.flexio.extended_flex_types
-          .NumberArrayBuilder()
-          .build()
+        new globalFlexioImport.io.flexio.flex_types.arrays
+          .StringArray()
       ) === false,
       '4'
     )
@@ -98,9 +91,8 @@ export class NumberValidatorTest extends TestCase {
     assert.ok(
       this.validator.validateInEnumerated(
         '',
-        new globalFlexioImport.io.flexio.extended_flex_types
-          .NumberArrayBuilder()
-          .build()
+        new globalFlexioImport.io.flexio.flex_types.arrays
+          .StringArray()
       ) === false,
       '5'
     )
@@ -108,9 +100,8 @@ export class NumberValidatorTest extends TestCase {
     assert.ok(
       this.validator.validateInEnumerated(
         null,
-        new globalFlexioImport.io.flexio.extended_flex_types
-          .NumberArrayBuilder()
-          .build()
+        new globalFlexioImport.io.flexio.flex_types.arrays
+          .StringArray()
       ) === false,
       '6'
     )
