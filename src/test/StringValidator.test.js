@@ -36,8 +36,8 @@ export class StringValidatorTest extends TestCase {
     assert.ok(this.validator.validateInRange('coucou', 'bibi', 'dudu'))
     assert.ok(this.validator.validateInRange('a', 'b', 'c') === false)
     assert.ok(this.validator.validateInRange('bibi', 'coucou', 'dudu') === false)
-    assert.ok(this.validator.validateInRange(null) === false)
-    assert.ok(this.validator.validateInRange(null, 'a', 'b') === false)
+    assert.ok(this.validator.validateInRange(null) )
+    assert.ok(this.validator.validateInRange(null, 'a', 'b'))
     assert.ok(this.validator.validateInRange({}, 'a', 'b') === false)
     assert.ok(this.validator.validateInRange(5, 'a', 'b') === false)
   }
@@ -80,7 +80,7 @@ export class StringValidatorTest extends TestCase {
         null,
         new globalFlexioImport.io.flexio.flex_types.arrays
           .StringArray()
-      ) === false
+      )
     )
 
   }
@@ -117,10 +117,10 @@ export class StringValidatorTest extends TestCase {
     )
 
     assert(
-      this.validator.validateRegex(null, new RegExp()) === false
+      this.validator.validateRegex(null, new RegExp()) === true
     )
     assert(
-      this.validator.validateRegex(null, '') === false
+      this.validator.validateRegex(null, '') === true
     )
 
   }

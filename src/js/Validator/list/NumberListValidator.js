@@ -1,18 +1,18 @@
-import {Validator} from './Validator'
+import {Validator} from '../Validator'
 import {globalFlexioImport} from '@flexio-oss/global-import-registry'
 import {ListValidator} from './ListValidator'
 
 /**
  * @implements {Validator}
  */
-export class BooleanListValidator extends ListValidator {
+export class NumberListValidator extends ListValidator {
   /**
    *
-   * @param {BooleanArray} value
+   * @param {FloatArray} value
    * @return {boolean}
    */
   validateType(value) {
     return value instanceof globalFlexioImport.io.flexio.flex_types.arrays
-      .BooleanArray
+      .FloatArray
   }
 }

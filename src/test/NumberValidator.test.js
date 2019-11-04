@@ -38,8 +38,8 @@ export class NumberValidatorTest extends TestCase {
     assert.ok(this.validator.validateInRange(0, 0, 1))
     assert.ok(this.validator.validateInRange(0, 1, 2) === false)
     assert.ok(this.validator.validateInRange('bibi', 1, 3) === false)
-    assert.ok(this.validator.validateInRange(null) === false)
-    assert.ok(this.validator.validateInRange(null, 2, 4) === false)
+    assert.ok(this.validator.validateInRange(null))
+    assert.ok(this.validator.validateInRange(null, 2, 4))
     assert.ok(this.validator.validateInRange({}, 0, 4) === false)
     assert.ok(this.validator.validateInRange(5, 'a', 'b') === false)
 
@@ -102,7 +102,7 @@ export class NumberValidatorTest extends TestCase {
         null,
         new globalFlexioImport.io.flexio.flex_types.arrays
           .StringArray()
-      ) === false,
+      ) ,
       '6'
     )
 

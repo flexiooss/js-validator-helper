@@ -41,6 +41,9 @@ export class IntegerValidator extends Validator {
    * @return {boolean}
    */
   validateInRange(value, rangeStart, rangeEnd) {
+    if(isNull(value)){
+      return true
+    }
     return this.validateType(value) && value >= parseInt(rangeStart, 10) && value <= parseInt(rangeEnd,10)
   }
 
@@ -51,6 +54,9 @@ export class IntegerValidator extends Validator {
    * @return {boolean}
    */
   validateInEnumerated(value, enumeratedValues) {
+    if(isNull(value)){
+      return true
+    }
     return TypeCheck.isStringArray(enumeratedValues) && this.validateType(value) && enumeratedValues.mapTo(new globalFlexioImport.io.flexio.flex_types.arrays.IntegerArray(), v => parseInt(v,10)).includes(value)
   }
 
