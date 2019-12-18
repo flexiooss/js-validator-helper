@@ -4,7 +4,7 @@ import {ListValidator} from './ListValidator'
 /**
  * @implements {Validator}
  */
-export class StringListValidator extends ListValidator {
+export class DateListValidator extends ListValidator {
   /**
    *
    * @param {StringArray} value
