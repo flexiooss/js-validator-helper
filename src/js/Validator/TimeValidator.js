@@ -5,7 +5,7 @@ import {TypeCheck} from '@flexio-oss/flex-types'
 /**
  * @implements {Validator}
  */
-export class DateValidator extends Validator {
+export class TimeValidator extends Validator {
   /**
    *
    * @param {FlexTime} value
