@@ -11,7 +11,6 @@ export {ObjectValidator} from './src/js/Validator/ObjectValidator'
 export {DateValidator} from './src/js/Validator/DateValidator'
 export {DateTimeValidator} from './src/js/Validator/DateTimeValidator'
 export {TimeValidator} from './src/js/Validator/TimeValidator'
-export {TimeValidator} from './src/js/Validator/TimeValidator'
 export {GeolocValidator} from './src/js/Validator/GeolocValidator'
 
 export {StringListValidator} from './src/js/Validator/list/StringListValidator'
