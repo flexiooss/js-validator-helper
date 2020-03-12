@@ -5,28 +5,28 @@ import {TypeCheck} from '@flexio-oss/flex-types'
 /**
  * @implements {Validator}
  */
-export class DateValidator extends Validator {
+export class DateTimeValidator extends Validator {
   /**
    *
-   * @param {FlexDate} value
+   * @param {FlexDateTime} value
    * @return {boolean}
    */
   validateType(value) {
-    return TypeCheck.isFlexDate(value)
+    return TypeCheck.isFlexDateTime(value)
   }
 
   /**
    *
-   * @param {FlexDate} value
+   * @param {FlexDateTime} value
    * @return {boolean}
    */
   validateNotNull(value) {
-    return TypeCheck.isFlexDate(value) && !isNull(value)
+    return TypeCheck.isFlexDateTime(value) && !isNull(value)
   }
 
   /**
    *
-   * @param {FlexDate} value
+   * @param {FlexDateTime} value
    * @return {boolean}
    */
   validateNotEmpty(value) {
@@ -35,7 +35,7 @@ export class DateValidator extends Validator {
 
   /**
    *
-   * @param {boolean} value
+   * @param {FlexDateTime} value
    * @param {string} rangeStart
    * @param {string} rangeEnd
    * @return {boolean}
@@ -46,7 +46,7 @@ export class DateValidator extends Validator {
 
   /**
    *
-   * @param {boolean} value
+   * @param {FlexDateTime} value
    * @param {StringArray} enumeratedValues
    * @return {boolean}
    */
@@ -56,7 +56,7 @@ export class DateValidator extends Validator {
 
   /**
    *
-   * @param {string} value
+   * @param {FlexDateTime} value
    * @param {RegExp} regex
    * @return {boolean}
    */
