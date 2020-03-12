@@ -2,8 +2,6 @@
 import {TestCase} from 'code-altimeter-js'
 import {GeolocValidator, LATITUDE_PROPERTY, LONGITUDE_PROPERTY} from '../js/Validator/GeolocValidator'
 import '@flexio-oss/flex-types'
-import '@flexio-oss/extended-flex-types'
-import {globalFlexioImport} from '@flexio-oss/global-import-registry'
 import {ObjectValue} from '@flexio-oss/flex-types/src/js/ObjectValue'
 
 const assert = require('assert')

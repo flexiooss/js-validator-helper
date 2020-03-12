@@ -2,7 +2,6 @@
 import {TestCase} from 'code-altimeter-js'
 import {NumberValidator} from '../js/Validator/NumberValidator'
 import '@flexio-oss/flex-types'
-import '@flexio-oss/extended-flex-types'
 import {globalFlexioImport} from '@flexio-oss/global-import-registry'
 
 const assert = require('assert')

@@ -1,7 +1,6 @@
 /* global runTest */
 import {TestCase} from 'code-altimeter-js'
 import {StringValidator} from '../js/Validator/StringValidator'
-import '@flexio-oss/extended-flex-types'
 import '@flexio-oss/flex-types'
 import {globalFlexioImport} from '@flexio-oss/global-import-registry'
 
