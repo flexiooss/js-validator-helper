@@ -1,23 +1,23 @@
-import {isInteger, isNull} from '@flexio-oss/assert'
 import {Validator} from './Validator'
+import {isNull, isString, isRegex} from '@flexio-oss/assert'
 import {globalFlexioImport} from '@flexio-oss/global-import-registry'
-import {TypeCheck} from '@flexio-oss/flex-types'
 
 /**
  * @implements {Validator}
  */
-export class IntegerValidator extends Validator {
+export class UrlValidator extends Validator {
   /**
    *
-   * @param {Number} value
+   * @param {string} value
    * @return {boolean}
    */
   validateType(value) {
-    return isInteger(value)
+    return isString(value)
   }
+
   /**
    *
-   * @param {Number} value
+   * @param {string} value
    * @return {boolean}
    */
   validateNotNull(value) {
@@ -26,16 +26,16 @@ export class IntegerValidator extends Validator {
 
   /**
    *
-   * @param {Number} value
+   * @param {string} value
    * @return {boolean}
    */
   validateNotEmpty(value) {
-    return this.validateNotNull(value)
+    return this.validateNotNull(value) && value !== ''
   }
 
   /**
    *
-   * @param {Number} value
+   * @param {string} value
    * @param {string} rangeStart
    * @param {string} rangeEnd
    * @return {boolean}
@@ -44,12 +44,12 @@ export class IntegerValidator extends Validator {
     if(isNull(value)){
       return true
     }
-    return this.validateType(value) && value >= parseInt(rangeStart, 10) && value <= parseInt(rangeEnd,10)
+    return this.validateType(rangeStart) && this.validateType(rangeEnd) && this.validateType(value) && value >= rangeStart && value <= rangeEnd
   }
 
   /**
    *
-   * @param {Number} value
+   * @param {string} value
    * @param {StringArray} enumeratedValues
    * @return {boolean}
    */
@@ -57,7 +57,8 @@ export class IntegerValidator extends Validator {
     if(isNull(value)){
       return true
     }
-    return TypeCheck.isStringArray(enumeratedValues) && this.validateType(value) && enumeratedValues.mapTo(new globalFlexioImport.io.flexio.flex_types.arrays.IntegerArray(), v => parseInt(v,10)).includes(value)
+    return enumeratedValues instanceof globalFlexioImport.io.flexio.flex_types.arrays
+      .StringArray && this.validateType(value) && enumeratedValues.indexOf(value, 0) > -1
   }
 
   /**
@@ -67,6 +68,9 @@ export class IntegerValidator extends Validator {
    * @return {boolean}
    */
   validateRegex(value, regex) {
-    throw new Error('IntegerValidator: no regex for `validateRegex`')
+    if(isNull(value)){
+      return true
+    }
+    return isRegex(regex) && this.validateType(value) && regex.test(value)
   }
 }

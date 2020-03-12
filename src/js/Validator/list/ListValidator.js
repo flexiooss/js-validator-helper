@@ -1,6 +1,5 @@
 import {Validator} from '../Validator'
 import {isNull} from '@flexio-oss/assert'
-import {globalFlexioImport} from '@flexio-oss/global-import-registry'
 
 /**
  * @implements {Validator}
