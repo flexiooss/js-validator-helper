@@ -1,7 +1,7 @@
 import {isInteger, isNull} from '@flexio-oss/assert'
 import {Validator} from './Validator'
-import {TypeCheck} from '@flexio-oss/extended-flex-types'
 import {globalFlexioImport} from '@flexio-oss/global-import-registry'
+import {TypeCheck} from '@flexio-oss/flex-types'
 
 /**
  * @implements {Validator}
