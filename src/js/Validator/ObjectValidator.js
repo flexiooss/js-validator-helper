@@ -1,5 +1,5 @@
 import {Validator} from './Validator'
-import {isNull, isBoolean} from '@flexio-oss/assert'
+import {isNull} from '@flexio-oss/assert'
 import {TypeCheck} from '@flexio-oss/flex-types'
 
 /**

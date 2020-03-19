@@ -50,7 +50,7 @@ export class BooleanValidator extends Validator {
    * @return {boolean}
    */
   validateInEnumerated(value, enumeratedValues) {
-    throw new Error('BooleanValidator: no enumeratedValues for `validateRegex`')
+    throw new Error('BooleanValidator: no enumeratedValues for `validateInEnumerated`')
   }
 
   /**

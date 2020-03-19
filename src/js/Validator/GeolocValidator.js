@@ -55,7 +55,7 @@ export class GeolocValidator extends Validator {
    * @return {boolean}
    */
   validateInEnumerated(value, enumeratedValues) {
-    throw new Error('GeolocValidator: no enumeratedValues for `validateRegex`')
+    throw new Error('GeolocValidator: no enumeratedValues for `validateInEnumerated`')
   }
 
   /**

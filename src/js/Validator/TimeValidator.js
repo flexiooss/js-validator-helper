@@ -51,7 +51,7 @@ export class TimeValidator extends Validator {
    * @return {boolean}
    */
   validateInEnumerated(value, enumeratedValues) {
-    throw new Error('DateValidator: no enumeratedValues for `validateRegex`')
+    throw new Error('DateValidator: no enumeratedValues for `validateInEnumerated`')
   }
 
   /**
