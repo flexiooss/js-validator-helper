@@ -12,6 +12,9 @@ export class PhoneNumberValidator extends Validator {
    * @return {boolean}
    */
   validateType(value) {
+    if(isNull(value)){
+      return true
+    }
     return isString(value) && PHONE_NUMBER_REGEX.test(value)
   }
 
