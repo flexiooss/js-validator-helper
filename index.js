@@ -14,6 +14,7 @@ export {TimeValidator} from './src/js/Validator/TimeValidator'
 export {GeolocValidator} from './src/js/Validator/GeolocValidator'
 export {EmailValidator} from './src/js/Validator/EmailValidator'
 export {PhoneNumberValidator} from './src/js/Validator/PhoneNumberValidator'
+export {BaseUrlValidator} from './src/js/Validator/BaseUrlValidator'
 
 export {StringListValidator} from './src/js/Validator/list/StringListValidator'
 export {UrlListValidator} from './src/js/Validator/list/UrlListValidator'
