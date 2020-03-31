@@ -4,6 +4,7 @@ export {ValueObjectValidator} from './src/js/ValueObjectValidator/ValueObjectVal
 
 export {NumberValidator} from './src/js/Validator/NumberValidator'
 export {IntegerValidator} from './src/js/Validator/IntegerValidator'
+export {DurationValidator} from './src/js/Validator/DurationValidator'
 export {StringValidator} from './src/js/Validator/StringValidator'
 export {UrlValidator} from './src/js/Validator/UrlValidator'
 export {BooleanValidator} from './src/js/Validator/BooleanValidator'
